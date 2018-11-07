@@ -22,10 +22,8 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".LoginActivity"
-            android:label="@string/title_activity_login" />
-        <activity android:name=".Main2Activity" />
-        <activity android:name=".activity_dasboard"></activity>
+            android:name=".Makul" />
+
     </application>
 
 </manifest>
