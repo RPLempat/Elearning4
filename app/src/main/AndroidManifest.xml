@@ -12,8 +12,6 @@
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
-
-
             </intent-filter>
         </activity>
         <activity android:name=".SplashScreen">
@@ -23,6 +21,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".Profile"></activity>
     </application>
 
 </manifest>
