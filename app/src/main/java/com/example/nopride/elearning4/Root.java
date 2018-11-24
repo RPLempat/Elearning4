@@ -19,8 +19,8 @@ public class Root extends Fragment {
 
         rootView = inflater.inflate(R.layout.root, container, false);
 
-        getActivity().setTitle("123");
-        Log.e("Root", "ASD");
+        getActivity().setTitle("Beranda");
+        Log.e("Root", "Beranda");
 
         return rootView;
     }

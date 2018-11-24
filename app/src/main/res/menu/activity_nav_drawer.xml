@@ -7,16 +7,19 @@
         <item
             android:id="@+id/beranda"
             android:title="Beranda" />
+        <item
+            android:id="@+id/profile"
+            android:title="Profile" />
     </group>
 
     <item
-        android:title="Makul">
+        android:title="Mata Kuliah">
         <menu>
             <item
-                android:id="@+id/nav_share"
+                android:id="@+id/makul_1"
                 android:title="Makul" />
             <item
-                android:id="@+id/nav_send"
+                android:id="@+id/makul_2"
                 android:title="Makul" />
         </menu>
     </item>
