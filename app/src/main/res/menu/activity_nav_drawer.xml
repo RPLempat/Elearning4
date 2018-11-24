@@ -17,10 +17,25 @@
         <menu>
             <item
                 android:id="@+id/makul_1"
-                android:title="Makul" />
+                android:title="Makul 1" />
             <item
                 android:id="@+id/makul_2"
-                android:title="Makul" />
+                android:title="Makul 2" />
+            <item
+                android:id="@+id/makul_3"
+                android:title="Makul 3" />
+            <item
+                android:id="@+id/makul_4"
+                android:title="Makul 4" />
+            <item
+                android:id="@+id/makul_5"
+                android:title="Makul 5" />
+            <item
+                android:id="@+id/makul_6"
+                android:title="Makul 6" />
+            <item
+                android:id="@+id/makul_7"
+                android:title="Makul 7" />
         </menu>
     </item>
     <group>

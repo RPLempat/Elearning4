@@ -102,7 +102,22 @@ public class Navigation extends AppCompatActivity implements NavigationView.OnNa
         } else if (id == R.id.makul_2) {
             fragment = new Makul();
             callFragment(fragment);
-        }  else if (id == R.id.logout) {
+        } else if (id == R.id.makul_3) {
+            fragment = new Makul();
+            callFragment(fragment);
+        } else if (id == R.id.makul_4) {
+            fragment = new Makul();
+            callFragment(fragment);
+        } else if (id == R.id.makul_5) {
+            fragment = new Makul();
+            callFragment(fragment);
+        } else if (id == R.id.makul_6) {
+            fragment = new Makul();
+            callFragment(fragment);
+        } else if (id == R.id.makul_7) {
+            fragment = new Makul();
+            callFragment(fragment);
+        } else if (id == R.id.logout) {
             logout();
         }
 
