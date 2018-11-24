@@ -6,25 +6,22 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import android.widget.GridLayout;
 import android.widget.RelativeLayout;
 
-public class Makul extends Fragment {
+public class Gallery extends Fragment {
 
-    public Makul(){}
+    public Gallery(){}
     RelativeLayout view;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        view = (RelativeLayout) inflater.inflate(R.layout.activity_matakuliah, container, false);
+        view = (RelativeLayout) inflater.inflate(R.layout.gallery, container, false);
 
-        getActivity().setTitle("Makul");
-        Log.e("Makul", "Makul");
+        getActivity().setTitle("Gallery");
+        Log.e("Gallery", "Gallery");
 
         return view;
     }
-
 }

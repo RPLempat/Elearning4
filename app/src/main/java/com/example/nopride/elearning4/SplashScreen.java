@@ -21,10 +21,10 @@ public class SplashScreen extends AppCompatActivity {
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                startActivity(new Intent(getApplicationContext(), Login.class));
                 finish();
             }
-        }, 3000L); //3000 L = 3 detik
+        }, 2000L); //3000 L = 3 detik
         setContentView(R.layout.activity_splashscreen);
     }
 }

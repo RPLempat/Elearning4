@@ -7,7 +7,6 @@
     android:layout_height="match_parent"
     android:background="#FFFFFF"
     tools:context=".SplashScreen">
-    android:layout_height="match_parent">
 
     <ImageView
         android:id="@+id/imageView"
@@ -17,13 +16,13 @@
         android:layout_marginBottom="124dp"
         android:gravity="fill_horizontal|fill_vertical"
         android:scaleType="fitCenter"
-        android:src="@mipmap/uin_suka"
+        android:src="@mipmap/uin"
         app:layout_constraintBottom_toTopOf="@+id/progresBar1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_chainStyle="packed"
-        tools:srcCompat="@mipmap/uin_suka" />
+        tools:srcCompat="@mipmap/uin" />
 
 
     <ProgressBar
@@ -34,7 +33,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="79dp"
         android:indeterminate="true"
-        android:indeterminateTint="@android:color/holo_green_light"
+        android:indeterminateTint="@color/colorPrimaryDark"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
