@@ -40,8 +40,16 @@
     </item>
     <group>
         <item
+            android:title="About">
+        <menu>
+        <item
+            android:id="@+id/about"
+            android:title="About" />
+        <item
             android:id="@+id/logout"
             android:title="Logout" />
+        </menu>
+        </item>
     </group>
 
 </menu>
