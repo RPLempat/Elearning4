@@ -8,18 +8,19 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.GridLayout;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 public class Profile extends Fragment  {
 
     public Profile(){}
-    RelativeLayout view;
+    LinearLayout view;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        view = (RelativeLayout) inflater.inflate(R.layout.activity_profile, container, false);
+        view = (LinearLayout) inflater.inflate(R.layout.activity_profile, container, false);
 
         getActivity().setTitle("Profile");
         Log.e("Makul", "Profile");
