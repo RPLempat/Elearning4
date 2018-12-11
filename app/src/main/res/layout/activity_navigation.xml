@@ -23,7 +23,17 @@
         android:fitsSystemWindows="true"
         app:headerLayout="@layout/nav_header_main"
         app:menu="@menu/activity_nav_drawer" >
-       
+
+        <!--<ExpandableListView-->
+            <!--android:id="@+id/expandableListView"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_gravity="start"-->
+            <!--android:layout_marginTop="160dp"-->
+            <!--android:indicatorLeft="?android:attr/expandableListPreferredItemIndicatorLeft"-->
+            <!--android:divider="@android:color/darker_gray"-->
+            <!--android:dividerHeight="0.5dp" />-->
+
     </android.support.design.widget.NavigationView>
 
 

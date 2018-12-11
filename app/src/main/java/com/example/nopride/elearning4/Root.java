@@ -2,7 +2,6 @@ package com.example.nopride.elearning4;
 
 
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -12,15 +11,15 @@ import android.view.ViewGroup;
 
 import com.example.nopride.elearning4.model.Mahasiswa;
 import com.example.nopride.elearning4.model.MahasiswaList;
-import com.example.nopride.elearning4.remote.RetrofitClient;
-import com.example.nopride.elearning4.remote.UserService;
+import com.example.nopride.elearning4.remote.ApiClient;
+import com.example.nopride.elearning4.remote.ApiInterface;
 
-import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 
 import java.util.ArrayList;
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -29,6 +28,13 @@ import retrofit2.Response;
 public class Root extends Fragment  {
 
     private ArrayList<Mahasiswa> mahasiswa;
+
+
+    ApiInterface mApiInterface;
+    private RecyclerView mRecyclerView;
+    private RecyclerView.Adapter mAdapter;
+    private RecyclerView.LayoutManager mLayoutManager;
+    public static Navigation ma;
 
     private RecyclerView recyclerView;
     private MahasiswaAdapter eAdapter;
@@ -46,44 +52,32 @@ public class Root extends Fragment  {
         getActivity().setTitle("Beranda");
         Log.e("Root", "Beranda");
 
+        mRecyclerView = (RecyclerView) rootView.findViewById(R.id.recycler_view);
+        mLayoutManager = new LinearLayoutManager(getActivity());
+        mRecyclerView.setLayoutManager(mLayoutManager);
+        mApiInterface = ApiClient.getClient().create(ApiInterface.class);
+        refresh();
 
-        //Creating an object of our api interface
-        UserService api = RetrofitClient.getApiService();
-
-        /**
-         * Calling JSON
-         */
-        Call<MahasiswaList> call = api.getMahasiswa();
-
-        /**
-         * Enqueue Callback will be call when get response...
-         */
-        call.enqueue(new Callback<MahasiswaList>() {
+        return rootView;
+    }
+    public void refresh() {
+        Call<MahasiswaList> MahasiswaCall = mApiInterface.getMahasiswa();
+        MahasiswaCall.enqueue(new Callback<MahasiswaList>() {
             @Override
-            public void onResponse(Call<MahasiswaList> call, Response<MahasiswaList> response) {
-                //Dismiss Dialog
-               // pDialog.dismiss();
-
-                if (response.isSuccessful()) {
-                    /**
-                     * Got Successfully
-                     */
-                    mahasiswa = (ArrayList<Mahasiswa>) response.body().getMahasiswa();
-                    recyclerView = (RecyclerView) rootView.findViewById(R.id.recycler_view);
-                    eAdapter = new MahasiswaAdapter(mahasiswa);
-                    RecyclerView.LayoutManager eLayoutManager = new LinearLayoutManager(getActivity());
-                    recyclerView.setLayoutManager(eLayoutManager);
-                    recyclerView.setItemAnimator(new DefaultItemAnimator());
-                    recyclerView.setAdapter(eAdapter);
-                }
+            public void onResponse(Call<MahasiswaList> call, Response<MahasiswaList>
+                    response) {
+                List<Mahasiswa> MahasiswaList = response.body().getMahasiswa();
+                Log.d("Retrofit Get", "Jumlah data Mahasiswa: " +
+                        String.valueOf(MahasiswaList.size()));
+                mAdapter = new MahasiswaAdapter(MahasiswaList);
+                mRecyclerView.setAdapter(mAdapter);
             }
 
             @Override
             public void onFailure(Call<MahasiswaList> call, Throwable t) {
-          //      pDialog.dismiss();
+                Log.e("Retrofit Get", t.toString());
             }
         });
-        return rootView;
     }
 
 

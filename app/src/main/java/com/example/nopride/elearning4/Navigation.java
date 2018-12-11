@@ -15,8 +15,19 @@ import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.content.Intent;
+import android.widget.ExpandableListAdapter;
+import android.widget.ExpandableListView;
+
+import com.bumptech.glide.Glide;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
 
 public class Navigation extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
@@ -27,6 +38,11 @@ public class Navigation extends AppCompatActivity implements NavigationView.OnNa
     Fragment fragment = null;
     SharedPreference sharedPreference ;
 
+    ExpandableListView expandableListView;
+    ExpandableListAdapter expandableListAdapter;
+    List<String> expandableListTitle;
+    HashMap<String, List<String>> expandableListDetail;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +50,54 @@ public class Navigation extends AppCompatActivity implements NavigationView.OnNa
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         sharedPreference = new SharedPreference(this);
+        TextView Nama,Nim;
+        ImageView imageView;
+
+//        // EXPANDABLE LIST VIEW
+//        expandableListView = (ExpandableListView) findViewById(R.id.expandableListView);
+//        expandableListDetail = ExpandListData.getData();
+//        expandableListTitle = new ArrayList<String>(expandableListDetail.keySet());
+//
+//        expandableListAdapter = new ExpandListAdapter(this, expandableListTitle, expandableListDetail);
+//        expandableListView.setAdapter(expandableListAdapter);
+//        expandableListView.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
+//
+//            @Override
+//            public void onGroupExpand(int groupPosition) {
+//                Toast.makeText(getApplicationContext(),
+//                        expandableListTitle.get(groupPosition) + " List Expanded.",
+//                        Toast.LENGTH_SHORT).show();
+//            }
+//        });
+//
+//        expandableListView.setOnGroupCollapseListener(new ExpandableListView.OnGroupCollapseListener() {
+//
+//            @Override
+//            public void onGroupCollapse(int groupPosition) {
+//                Toast.makeText(getApplicationContext(),
+//                        expandableListTitle.get(groupPosition) + " List Collapsed.",
+//                        Toast.LENGTH_SHORT).show();
+//
+//            }
+//        });
+//
+//        expandableListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
+//            @Override
+//            public boolean onChildClick(ExpandableListView parent, View v,
+//                                        int groupPosition, int childPosition, long id) {
+//                Toast.makeText(
+//                        getApplicationContext(),
+//                        expandableListTitle.get(groupPosition)
+//                                + " -> "
+//                                + expandableListDetail.get(
+//                                expandableListTitle.get(groupPosition)).get(
+//                                childPosition), Toast.LENGTH_SHORT
+//                ).show();
+//                return false;
+//            }
+//        });
+
+        // ---------------------------------------------------------------
 
         drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -41,9 +105,28 @@ public class Navigation extends AppCompatActivity implements NavigationView.OnNa
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
+
         navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        View headerView= navigationView.getHeaderView(0);
 
+        String urlGambar ="http://learningcoba.000webhostapp.com/profile/16650033.jpg";
+        String urlPlaceholder ="http://learningcoba.000webhostapp.com/profile/16650033.jpg";
+
+        imageView = (ImageView)headerView.findViewById(R.id.imageUser);
+        Glide.with(this)
+                // LOAD URL DARI INTERNET
+                .load(urlGambar)
+                // LOAD GAMBAR AWAL SEBELUM GAMBAR UTAMA MUNCUL, BISA DARI LOKAL DAN INTERNET
+//                .placeholder(R.drawable.uin)
+//                //. LOAD GAMBAR SAAT TERJADI KESALAHAN MEMUAT GMBR UTAMA
+//                .error(R.drawable.uin)
+                .into(imageView);
+
+        Nim = (TextView) headerView.findViewById(R.id.setNim);
+        Nama = (TextView) headerView.findViewById(R.id.setNama);
+        Nim.setText(sharedPreference.getSPNim());
+        Nama.setText(sharedPreference.getSPNama());
         // tampilan default awal ketika aplikasii dijalankan
         if (savedInstanceState == null) {
             fragment = new Root();
