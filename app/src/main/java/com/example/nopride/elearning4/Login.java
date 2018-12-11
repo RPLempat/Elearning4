@@ -1,6 +1,7 @@
 package com.example.nopride.elearning4;
 
 import android.app.ProgressDialog;
+import android.os.CountDownTimer;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,6 +11,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 import android.content.Intent;
+
+import android.os.Handler;
 import android.app.Activity;
 import android.view.inputmethod.InputMethodManager;
 import android.content.Context;
@@ -58,7 +61,7 @@ public class Login extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //loading = ProgressDialog.show(mContext, null, "Harap Tunggu...", true, false);
+                loading = ProgressDialog.show(mContext, null, "Harap Tunggu...", true, false);
                 requestLogin();
             }
         });
@@ -80,13 +83,9 @@ public class Login extends AppCompatActivity {
                 .enqueue(new Callback<ResponseBody>() {
                     @Override
                     public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-                        Toast.makeText(mContext, "Response Sukses"+ nim+" "+pass, Toast.LENGTH_SHORT).show();
                         if (response.isSuccessful()){
-                                Toast.makeText(mContext, "Response Suksesful " , Toast.LENGTH_SHORT).show();
-
-                            //loading.dismiss();
+                            loading.dismiss();
                             try {
-//                                Toast.makeText(mContext, "Response TRY", Toast.LENGTH_SHORT).show();
                                 JSONObject hasil = new JSONObject(response.body().string());
                                 if (hasil.getString("isSucces").equals("true")  ){
                                     dbnim = hasil.getJSONObject("mahasiswa").getString("nim");
@@ -99,28 +98,27 @@ public class Login extends AppCompatActivity {
                                     sharedPreference.saveSPString(sharedPreference.SP_NAMA, dbnama);
                                     // Shared Pref ini berfungsi untuk menjadi trigger session login
                                     sharedPreference.saveSPBoolean(sharedPreference.SP_SUDAH_LOGIN, true);
-
                                     startActivity(new Intent(Login.this, Navigation.class)
                                             .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
                                     finish();
                                 } else {
-//                                    // Jika login gagal
-                                    Toast.makeText(mContext, "Akun Tidak Ada ", Toast.LENGTH_SHORT).show();
-//                                    String error_message = jsonRESULTS.getString("error_msg");
-//                                    Toast.makeText(mContext, error_message, Toast.LENGTH_SHORT).show();
+                                    // Jika login gagal
+                                    loading.dismiss();;
+                                    Toast.makeText(mContext, "Akun Tidak Tersedia", Toast.LENGTH_SHORT).show();
+//
                                 }
                             } catch (JSONException e) {
-                                Toast.makeText(mContext, "Response Gagal 1", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(mContext, "Akun Tidak Tersedia", Toast.LENGTH_SHORT).show();
 //                                e.printStackTrace();
                             } catch (IOException e) {
-                                Toast.makeText(mContext, "Response Gagal 2", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(mContext, "Akun Tidak Tersedia", Toast.LENGTH_SHORT).show();
 //                                e.printStackTrace();
                             }
                         } else {
-                            Toast.makeText(mContext, "Response Gagal 130", Toast.LENGTH_SHORT).show();
-
-                            //loading.dismiss();
+                            loading.dismiss();
+                            //Toast.makeText(mContext, "Response Gagal 130", Toast.LENGTH_SHORT).show();
                         }
+
                     }
 
                     @Override
