@@ -3,20 +3,17 @@ package com.example.nopride.elearning4;
 
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-
 import com.example.nopride.elearning4.model.Mahasiswa;
 import com.example.nopride.elearning4.model.MahasiswaList;
 import com.example.nopride.elearning4.remote.ApiClient;
 import com.example.nopride.elearning4.remote.ApiInterface;
-
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,7 +22,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class Root extends Fragment  {
+public class Root extends Fragment {
 
     private ArrayList<Mahasiswa> mahasiswa;
 
@@ -42,7 +39,6 @@ public class Root extends Fragment  {
     public Root(){}
     View rootView;
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -57,9 +53,9 @@ public class Root extends Fragment  {
         mRecyclerView.setLayoutManager(mLayoutManager);
         mApiInterface = ApiClient.getClient().create(ApiInterface.class);
         refresh();
-
         return rootView;
     }
+
     public void refresh() {
         Call<MahasiswaList> MahasiswaCall = mApiInterface.getMahasiswa();
         MahasiswaCall.enqueue(new Callback<MahasiswaList>() {
@@ -79,7 +75,4 @@ public class Root extends Fragment  {
             }
         });
     }
-
-
-
 }
