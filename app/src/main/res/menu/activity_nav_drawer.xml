@@ -1,55 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    >
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/beranda"
+
             android:title="Beranda" />
         <item
             android:id="@+id/profile"
             android:title="Profile" />
+
+        <item
+            android:id="@+id/makul"
+            android:title="Mata Kuliah" />
     </group>
 
-    <item
-        android:title="Mata Kuliah">
-        <menu>
-            <item
-                android:id="@+id/makul_1"
-                android:title="Makul 1" />
-            <item
-                android:id="@+id/makul_2"
-                android:title="Makul 2" />
-            <item
-                android:id="@+id/makul_3"
-                android:title="Makul 3" />
-            <item
-                android:id="@+id/makul_4"
-                android:title="Makul 4" />
-            <item
-                android:id="@+id/makul_5"
-                android:title="Makul 5" />
-            <item
-                android:id="@+id/makul_6"
-                android:title="Makul 6" />
-            <item
-                android:id="@+id/makul_7"
-                android:title="Makul 7" />
-        </menu>
-    </item>
-    <group>
-        <item
-            android:title="About">
-        <menu>
+    <group android:id="@+id/group_menu">
+
         <item
             android:id="@+id/about"
             android:title="About" />
         <item
             android:id="@+id/logout"
             android:title="Logout" />
-        </menu>
-        </item>
+
     </group>
 
 </menu>

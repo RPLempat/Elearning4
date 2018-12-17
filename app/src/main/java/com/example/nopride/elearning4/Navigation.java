@@ -129,7 +129,7 @@ public class Navigation extends AppCompatActivity implements NavigationView.OnNa
         Nama.setText(sharedPreference.getSPNama());
         // tampilan default awal ketika aplikasii dijalankan
         if (savedInstanceState == null) {
-            fragment = new Root();
+            fragment = new Beranda();
             callFragment(fragment);
         }
     }
@@ -175,33 +175,15 @@ public class Navigation extends AppCompatActivity implements NavigationView.OnNa
 
         // Untuk memanggil layout dari menu yang dipilih
         if (id == R.id.beranda) {
-            fragment = new Root();
+            fragment = new Beranda();
             callFragment(fragment);
         } else if (id == R.id.profile) {
             fragment = new Profile();
             callFragment(fragment);
-        } else if (id == R.id.makul_1) {
+        } else if (id == R.id.makul) {
             fragment = new Makul();
             callFragment(fragment);
-        } else if (id == R.id.makul_2) {
-            fragment = new Makul();
-            callFragment(fragment);
-        } else if (id == R.id.makul_3) {
-            fragment = new Makul();
-            callFragment(fragment);
-        } else if (id == R.id.makul_4) {
-            fragment = new Makul();
-            callFragment(fragment);
-        } else if (id == R.id.makul_5) {
-            fragment = new Makul();
-            callFragment(fragment);
-        } else if (id == R.id.makul_6) {
-            fragment = new Makul();
-            callFragment(fragment);
-        } else if (id == R.id.makul_7) {
-            fragment = new Makul();
-            callFragment(fragment);
-        } else if (id == R.id.about) {
+        }else if (id == R.id.about) {
             fragment = new About();
             callFragment(fragment);
         } else if (id == R.id.logout) {

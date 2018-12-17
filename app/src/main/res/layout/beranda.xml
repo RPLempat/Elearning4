@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="10dp"
+    android:orientation="vertical">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        >
+    <EditText
+    android:id="@+id/editpengumunan"
+    android:gravity="start"
+    android:layout_marginTop="10dp"
+    android:inputType="textMultiLine"
+    android:imeOptions="actionDone"
+    android:minLines="4"
+    android:hint="Tulis di sini..."
+        android:autofillHints="#000"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+        android:outlineProvider="@color/colorPrimaryDark"/>
+
+    <Button
+        android:id="@+id/tambahfile"
+        android:layout_marginTop="10dp"
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:background="#eeeeee"
+        android:layout_alignParentLeft="true"
+        android:hint="Tambah File"
+        android:textFontWeight="bold"
+        android:layout_below="@id/editpengumunan"/>
+
+    <Button
+        android:id="@+id/posting"
+        android:layout_width="160dp"
+        android:layout_alignBaseline="@id/tambahfile"
+        android:hint="Kirim"
+        android:layout_alignParentRight="true"
+        android:textFontWeight="bold"
+        android:background="#eeeeee"
+        android:layout_height="wrap_content" />
+
+    </RelativeLayout>
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="vertical" />
+
+</LinearLayout>

@@ -1,6 +1,5 @@
 package com.example.nopride.elearning4;
 
-import android.content.Intent;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -11,28 +10,29 @@ import android.widget.TextView;
 import com.example.nopride.elearning4.model.Mahasiswa;
 import java.util.List;
 
-public class MahasiswaAdapter extends RecyclerView.Adapter<MahasiswaAdapter.MyViewHolder>{
-
+public class PostAdapter extends RecyclerView.Adapter<PostAdapter.MyViewHolder> {
     List<Mahasiswa> mMahasiswaList;
 
-    public MahasiswaAdapter(List <Mahasiswa> MahasiswaList) {
+    public PostAdapter(List<Mahasiswa> MahasiswaList) {
         mMahasiswaList = MahasiswaList;
     }
 
+
     @Override
-    public MyViewHolder onCreateViewHolder (ViewGroup parent,int viewType){
-        View mView = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_mahasiswa, parent, false);
+    public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View mView = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_post, parent, false);
         MyViewHolder mViewHolder = new MyViewHolder(mView);
         return mViewHolder;
     }
+
     @Override
-    public void onBindViewHolder (MyViewHolder holder,final int position){
-        holder.mTextViewNim.setText("NIM = " + mMahasiswaList.get(position).getNim());
-        holder.mTextViewNama.setText("NAMA = " + mMahasiswaList.get(position).getNama());
-        holder.mTextViewPass.setText("PASS = " + mMahasiswaList.get(position).getPass());
-        holder.mTextViewJk.setText("JK = " + mMahasiswaList.get(position).getJk());
-        holder.mTextViewProdi.setText("PRODI = " + mMahasiswaList.get(position).getProdi());
-        holder.mTextViewFakultas.setText("FAKULTAS = " + mMahasiswaList.get(position).getFakultas());
+    public void onBindViewHolder(MyViewHolder holder, final int position) {
+        holder.mTextViewNama.setText( mMahasiswaList.get(position).getNama());
+        holder.mTextViewProdi.setText( mMahasiswaList.get(position).getProdi());
+        holder.mTextViewPass.setText( mMahasiswaList.get(position).getFakultas());
+//        holder.mTextViewJk.setText("JK = " + mMahasiswaList.get(position).getJk());
+//        holder.mTextViewProdi.setText("PRODI = " + mMahasiswaList.get(position).getProdi());
+//        holder.mTextViewFakultas.setText("FAKULTAS = " + mMahasiswaList.get(position).getFakultas());
 //        holder.itemView.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View view) {
@@ -49,7 +49,7 @@ public class MahasiswaAdapter extends RecyclerView.Adapter<MahasiswaAdapter.MyVi
     }
 
     @Override
-    public int getItemCount () {
+    public int getItemCount() {
         return mMahasiswaList.size();
     }
 
@@ -58,12 +58,12 @@ public class MahasiswaAdapter extends RecyclerView.Adapter<MahasiswaAdapter.MyVi
 
         public MyViewHolder(View itemView) {
             super(itemView);
-            mTextViewNim = (TextView) itemView.findViewById(R.id.nim);
+//            mTextViewNim = (TextView) itemView.findViewById(R.id.prodimakul);
             mTextViewNama = (TextView) itemView.findViewById(R.id.nama);
-            mTextViewPass = (TextView) itemView.findViewById(R.id.pass);
-            mTextViewJk = (TextView) itemView.findViewById(R.id.jk);
-            mTextViewProdi = (TextView) itemView.findViewById(R.id.prodi);
-            mTextViewFakultas = (TextView) itemView.findViewById(R.id.fakultas);
+            mTextViewPass = (TextView) itemView.findViewById(R.id.deskripsi);
+//            mTextViewJk = (TextView) itemView.findViewById(R.id.jk);
+            mTextViewProdi = (TextView) itemView.findViewById(R.id.prodimakul);
+//            mTextViewFakultas = (TextView) itemView.findViewById(R.id.fakultas);
         }
     }
 }

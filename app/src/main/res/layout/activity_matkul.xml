@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="10dp"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/tx1"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="Tahun Ajaran"/>
+
+        <Spinner
+            android:layout_alignBaseline="@+id/tx1"
+            android:id="@+id/th_ajar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"></Spinner>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:orientation="horizontal">
+        android:layout_marginTop="10dp"
+        <TextView
+            android:id="@+id/tx2"
+
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="Semester"
+            android:layout_below="@+id/tx1"/>
+        <Spinner
+            android:layout_alignBaseline="@+id/tx2"
+            android:id="@+id/semester"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"></Spinner>
+
+    </LinearLayout>
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="vertical" />
+
+</LinearLayout>

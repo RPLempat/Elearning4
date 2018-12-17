@@ -11,9 +11,10 @@ public class SharedPreference {
 
     public static final String SP_NIM = "spNim";
     public static final String SP_NAMA = "spNama";
-
-    public static final String SP_EMAIL = "spEmail";
-
+    public static final String SP_PASS = "spPass";
+    public static final String SP_JK = "spJk";
+    public static final String SP_PRODI = "spProdi";
+    public static final String SP_FAKULTAS = "spFakultas";
     public static final String SP_SUDAH_LOGIN = "spSudahLogin";
 
     SharedPreferences sp;
@@ -45,9 +46,17 @@ public class SharedPreference {
     public String getSPNim(){
         return sp.getString(SP_NIM, "");
     }
-
-    public String getSPEmail(){
-        return sp.getString(SP_EMAIL, "");
+    public String getSPProdi(){
+        return sp.getString(SP_PRODI, "");
+    }
+    public String getSPFakultas(){
+        return sp.getString(SP_FAKULTAS, "");
+    }
+    public String getSPPass(){
+        return sp.getString(SP_PASS, "");
+    }
+    public String getSPJk(){
+        return sp.getString(SP_JK, "");
     }
 
     public Boolean getSPSudahLogin(){
